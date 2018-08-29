@@ -2,14 +2,15 @@
 <div>
   <sidebar 
     v-bind:mini="$vuetify.breakpoint.mdOnly"
-    v-bind:showDrawer="$vuetify.breakpoint.mdAndUp">
+    v-bind:showDrawer="$vuetify.breakpoint.mdAndUp"
+    v-bind:toggle="toggle">
   </sidebar>
-  <chat></chat>
+  <chat v-model="toggle"></chat>
 </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Model } from "vue-property-decorator";
 import Sidebar from "@/components/Sidebar.vue";
 import Chat from "@/components/Chat.vue";
 
@@ -19,5 +20,8 @@ import Chat from "@/components/Chat.vue";
     Chat
   }
 })
-export default class Main extends Vue {}
+export default class Main extends Vue {
+  @Model("toggle", { type: Boolean })
+  toggle!: boolean;
+}
 </script>

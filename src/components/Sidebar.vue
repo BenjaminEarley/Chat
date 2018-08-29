@@ -1,5 +1,6 @@
 <template>
     <v-navigation-drawer 
+      v-model="drawer"
       :mini-variant="mini"
       app
       :permanent="showDrawer">
@@ -31,16 +32,24 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
 @Component
 export default class Sidebar extends Vue {
+  drawer: any = null;
   items = [
     { id: 0, title: "Home", icon: "dashboard" },
     { id: 1, title: "About", icon: "question_answer" }
   ];
   @Prop(Boolean) mini!: boolean;
   @Prop(Boolean) showDrawer!: boolean;
+  @Prop(Boolean) toggle!: boolean;
+
+  @Watch("toggle")
+  onChildChanged(val: boolean, oldVal: boolean) {
+    console.log(oldVal + " to " + val);
+    this.drawer = !this.drawer;
+  }
 }
 </script>
 
