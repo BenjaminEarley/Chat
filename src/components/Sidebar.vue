@@ -1,6 +1,6 @@
 <template>
     <v-navigation-drawer 
-      v-model="drawer"
+    v-model="drawer"
       :mini-variant="mini"
       app
       :permanent="showDrawer">
