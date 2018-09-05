@@ -1,6 +1,6 @@
 <template>
     <v-navigation-drawer 
-    v-model="drawer"
+      v-model="drawer"
       :mini-variant="mini"
       app
       :permanent="showDrawer">
@@ -38,8 +38,12 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 export default class Sidebar extends Vue {
   drawer: any = null;
   items = [
-    { id: 0, title: "Home", icon: "dashboard" },
-    { id: 1, title: "About", icon: "question_answer" }
+    { id: 0, title: "All",    icon: "question_answer" },
+    { id: 1, title: "Chat 1", icon: "question_answer" },
+    { id: 2, title: "Chat 2", icon: "question_answer" },
+    { id: 3, title: "Chat 3", icon: "question_answer" },
+    { id: 4, title: "Chat 4", icon: "question_answer" },
+    { id: 5, title: "Chat 5", icon: "question_answer" }
   ];
   @Prop(Boolean) mini!: boolean;
   @Prop(Boolean) showDrawer!: boolean;

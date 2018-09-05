@@ -5,7 +5,9 @@
     v-bind:showDrawer="$vuetify.breakpoint.mdAndUp"
     v-bind:toggle="postToggle">
   </sidebar>
-  <appbar v-on:toggle="postToggle = !postToggle"></appbar>
+  <appbar 
+    v-on:toggle="postToggle = !postToggle">
+  </appbar>
   <chat></chat>
 </div>
 </template>
